@@ -15,7 +15,7 @@ void main(){
     
     for(int row=1; row<=M; row++){
         for(int col=1; col<=N; col++){
-            printf("%d ",data[row][col]+k[i]);
+            //printf("%d ",data[row][col]+k[i]);
         }
         printf("\n");
     }
