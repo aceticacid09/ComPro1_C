@@ -5,11 +5,12 @@ int isUniqe(int* arData, const int n){
     for(a=0; a<n-1; a++){
         for(b=a+1; b<n; b++){
             if(arData[a]==arData[b]){
-                return count=0;
+                count+=1;
+                return count;
             }
         }
     }
-    return count=1;
+    return count;
 }
 
 void main(){
@@ -20,6 +21,6 @@ void main(){
         scanf("%d",&arData[i]);
     }
 
-    isUniqe(arData, n);
-    printf("%d",count);
+    int result = isUniqe(arData, n);
+    printf("%d",result);
 }
