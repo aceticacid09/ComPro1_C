@@ -1,59 +1,49 @@
 #include<stdio.h>
-
 void main(){
     int n;
     scanf("%d",&n);
-    char arr[n][n];
-
-    for(int i=0; i<n; i++){
-        for(int j=0; j<n; j++){
-            arr[i][j]='*';
+    if(n%2!=0 && n>=29 && n<=99){
+        char arr[n][n];
+        //prepare arr
+        for(int row=0; row<n; row++){
+            for(int col=0; col<n; col++){
+                arr[row][col]=' ';
+            }
         }
-    }
-    // for(int row=0; row<n; row++){
-    //     for(int col=0; col<n; col++){
-    //         if(row==0 || row==n-1 || col==0 || col==n-1){
-    //             printf("*"); 
-    //         } else {
-    //             printf(" ");
-    //         }
-    //     }
-    //     printf("\n"); 
-    // }
-    
-    //upper triangle 
-    for(int row=1; row<=11; row++){
-        for(int col=3+row; col<=11; col++){
-            arr[row][col]=' ';
+        //frame and '+' in the middle
+        int midrow=n/2, midcol=n/2;
+        for(int row=0; row<n;row++){
+            for(int col=0; col<n; col++){
+                if(row==0 || row==n-1 || col==0 || col==n-1){
+                    arr[row][col]='*';  //frame
+                }
+                if((row>=midrow-2 && row<=midrow+2) || (col>=midcol-2 && col<=midcol+2)){
+                    arr[row][col]='*';  //'+' in the middle
+                }
+            }
         }
-    }
-    for(int row=1; row<=11; row++){
-        for(int col=17; col<=25-row; col++){
-            arr[row][col]=' ';
+        //left top to right bottom
+        int Lcol=0;
+        for(int row=1; row<n; row++){
+            for(int col=Lcol; col<Lcol+3; col++){
+                arr[row][col]='*';
+            }
+            Lcol++;
         }
-    }
-
-    //lower triangle 
-    int ncol=0;
-    for(int row=1; row<11; row++){
-        for(int col=1; col<ncol; col++){
-            arr[row][col]=' ';
+        //right top to left bottom
+        int Rcol=n-3;
+        for(int row=1; row<n; row++){
+            for(int col=Rcol; col<Rcol+3; col++){
+                arr[row][col]='*';
+            }
+            Rcol--;
         }
-        ncol++;
+        //output
+        for(int row=0; row<n; row++){
+            for(int col=0; col<n; col++){
+                printf("%c",arr[row][col]);
+            }
+            printf("\n");
+        }    
     }
-    
-    for(int row=3; row<11; row++){
-        for(int col=n-1; col>=20; col--){
-            arr[row][col]=' ';
-        }
-        
-    }
-
-    for(int row=0; row<n; row++){
-        for(int col=0; col<n; col++){
-            printf("%c",arr[row][col]);
-        }
-        printf("\n");
-    }
-
 }
