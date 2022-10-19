@@ -39,7 +39,7 @@ void main(){
         }
     }
 
-//after middle
+//after center
     for(int row=mid+1; row<n-1; row++){
             for(int col=Lcol+1; col<=mid; col++){
                 arr[row][col]='*';
@@ -53,7 +53,7 @@ void main(){
             Rcol--;
         }
 
-
+//output
     for(int row=0; row<n; row++){
             for(int col=0; col<n; col++){
                 printf("%c",arr[row][col]);
