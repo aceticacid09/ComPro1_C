@@ -34,7 +34,5 @@ void main(){
             printf("%s\n", std[i].id);
         }
     }
-    
-    
 
 }
