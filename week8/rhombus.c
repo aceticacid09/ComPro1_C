@@ -26,7 +26,7 @@ void main(){
             Lcol--;
         }
     for(int row=1; row<mid; row++){
-            for(int col=mid; col<Rcol+1; col++){
+            for(int col=mid; col<=Rcol; col++){
                 arr[row][col]='*';
             }
             Rcol++;
