@@ -22,7 +22,6 @@ void main(){
 //finding most grade in form
     double max; 
     int top;
-    char topid, topname, topsurname;
     for(int i=0; i<n; i++){
         if(std[i].grade>max){
             max = std[i].grade;
